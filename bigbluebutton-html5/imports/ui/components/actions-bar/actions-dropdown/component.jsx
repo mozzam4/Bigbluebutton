@@ -149,6 +149,13 @@ class ActionsDropdown extends PureComponent {
               Session.set('openPanel', 'poll');
               Session.set('forcePollOpen', true);
             }}
+          />,
+          <DropdownListItem
+            icon="presentation"
+            label={formatMessage(startTakingNotes)}
+            //description={formatMessage(takePresenterDesc)}
+            key={this.takePresenterId}
+            onClick={() => handleTakePresenter()}
           />
         )
         : null),
@@ -179,6 +186,13 @@ class ActionsDropdown extends PureComponent {
             description={formatMessage(presentationDesc)}
             key={this.presentationItemId}
             onClick={this.handlePresentationClick}
+          />,
+          <DropdownListItem
+            icon="presentation"
+            label={formatMessage(startTakingNotes)}
+            //description={formatMessage(takePresenterDesc)}
+            key={this.takePresenterId}
+            onClick={() => handleTakePresenter()}
           />
         )
         : null),
@@ -191,6 +205,13 @@ class ActionsDropdown extends PureComponent {
             description="External Video"
             key="external-video"
             onClick={isSharingVideo ? stopExternalVideoShare : this.handleExternalVideoClick}
+          />,
+          <DropdownListItem
+            icon="presentation"
+            label={formatMessage(startTakingNotes)}
+            //description={formatMessage(takePresenterDesc)}
+            key={this.takePresenterId}
+            onClick={() => handleTakePresenter()}
           />
         )
         : null),
