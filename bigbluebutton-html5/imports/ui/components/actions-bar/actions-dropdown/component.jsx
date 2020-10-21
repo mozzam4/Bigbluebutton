@@ -23,6 +23,8 @@ const propTypes = {
   handleTakePresenter: PropTypes.func.isRequired,
   allowExternalVideo: PropTypes.bool.isRequired,
   stopExternalVideoShare: PropTypes.func.isRequired,
+  startNotes: PropTypes.func.isRequired,
+  stopNotes: PropTypes.func.isRequired,
 };
 
 const defaultProps = {
@@ -74,6 +76,14 @@ const intlMessages = defineMessages({
     id: 'app.actionsBar.actionsDropdown.stopShareExternalVideo',
     description: 'Stop sharing external video button',
   },
+  startTakingNotes: {
+    id: 'app.actionsBar.actionsDropdown.starttakingnotes',
+    description: 'Start taking notes',
+  },
+  stopTakingNotes: {
+    id: 'app.actionsBar.actionsDropdown.stoptakingnotes',
+    description: 'Stop taking notes',
+  },
 });
 
 class ActionsDropdown extends PureComponent {
@@ -105,6 +115,8 @@ class ActionsDropdown extends PureComponent {
       isSharingVideo,
       isPollingEnabled,
       stopExternalVideoShare,
+      startNotes,
+      stopNotes,
     } = this.props;
 
     const {
@@ -114,6 +126,8 @@ class ActionsDropdown extends PureComponent {
       presentationDesc,
       takePresenter,
       takePresenterDesc,
+      stopTakingNotes,
+      startTakingNotes,      
     } = intlMessages;
 
     const {
@@ -144,6 +158,13 @@ class ActionsDropdown extends PureComponent {
             icon="presentation"
             label={formatMessage(takePresenter)}
             description={formatMessage(takePresenterDesc)}
+            key={this.takePresenterId}
+            onClick={() => handleTakePresenter()}
+          />,
+          <DropdownListItem
+            icon="presentation"
+            label={formatMessage(startTakingNotes)}
+            //description={formatMessage(takePresenterDesc)}
             key={this.takePresenterId}
             onClick={() => handleTakePresenter()}
           />
