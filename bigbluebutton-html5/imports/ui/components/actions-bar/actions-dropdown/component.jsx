@@ -149,14 +149,8 @@ class ActionsDropdown extends PureComponent {
               Session.set('openPanel', 'poll');
               Session.set('forcePollOpen', true);
             }}
-          />,
-          <DropdownListItem
-            icon="presentation"
-            label={formatMessage(startTakingNotes)}
-            //description={formatMessage(takePresenterDesc)}
-            key={this.takePresenterId}
-            onClick={() => handleTakePresenter()}
           />
+          
         )
         : null),
       (!amIPresenter
@@ -165,13 +159,6 @@ class ActionsDropdown extends PureComponent {
             icon="presentation"
             label={formatMessage(takePresenter)}
             description={formatMessage(takePresenterDesc)}
-            key={this.takePresenterId}
-            onClick={() => handleTakePresenter()}
-          />,
-          <DropdownListItem
-            icon="presentation"
-            label={formatMessage(startTakingNotes)}
-            //description={formatMessage(takePresenterDesc)}
             key={this.takePresenterId}
             onClick={() => handleTakePresenter()}
           />
@@ -186,14 +173,7 @@ class ActionsDropdown extends PureComponent {
             description={formatMessage(presentationDesc)}
             key={this.presentationItemId}
             onClick={this.handlePresentationClick}
-          />,
-          <DropdownListItem
-            icon="presentation"
-            label={formatMessage(startTakingNotes)}
-            //description={formatMessage(takePresenterDesc)}
-            key={this.takePresenterId}
-            onClick={() => handleTakePresenter()}
-          />
+          />          
         )
         : null),
       (amIPresenter && allowExternalVideo
@@ -205,14 +185,19 @@ class ActionsDropdown extends PureComponent {
             description="External Video"
             key="external-video"
             onClick={isSharingVideo ? stopExternalVideoShare : this.handleExternalVideoClick}
-          />,
-          <DropdownListItem
-            icon="presentation"
-            label={formatMessage(startTakingNotes)}
-            //description={formatMessage(takePresenterDesc)}
-            key={this.takePresenterId}
-            onClick={() => handleTakePresenter()}
           />
+        )
+        : null),
+      (!amIPresenter 
+        ? (
+          <DropdownListItem
+            //data-test="uploadPresentation"
+            //icon="presentation"
+            label={formatMessage(startTakingNotes)}
+            description={formatMessage(startTakingNotes)}
+            //key={this.presentationItemId}
+            onClick={this.handlePresentationClick}
+          />          
         )
         : null),
     ]);
