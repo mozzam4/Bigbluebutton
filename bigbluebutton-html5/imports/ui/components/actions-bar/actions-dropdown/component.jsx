@@ -188,7 +188,7 @@ class ActionsDropdown extends PureComponent {
           />
         )
         : null),
-      (!amIPresenter 
+      (amIPresenter 
         ? (
           <DropdownListItem
             //data-test="uploadPresentation"
