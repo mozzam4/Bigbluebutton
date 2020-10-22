@@ -16,7 +16,7 @@ import ExternalVideoModal from '/imports/ui/components/external-video-player/mod
 
 const propTypes = {
   amIPresenter: PropTypes.bool.isRequired,
-  intl: intlShape.isRequired,
+  clickforNotes: PropTypes.bool.isRequired,
   mountModal: PropTypes.func.isRequired,
   amIModerator: PropTypes.bool.isRequired,
   shortcuts: PropTypes.string,
@@ -89,6 +89,7 @@ const intlMessages = defineMessages({
 class ActionsDropdown extends PureComponent {
   constructor(props) {
     super(props);
+    
 
     this.presentationItemId = _.uniqueId('action-item-');
     this.pollId = _.uniqueId('action-item-');
@@ -126,8 +127,8 @@ class ActionsDropdown extends PureComponent {
       presentationDesc,
       takePresenter,
       takePresenterDesc,
-      stopTakingNotes,
-      startTakingNotes,      
+      stoptakingNotes,
+      starttakingnotes,      
     } = intlMessages;
 
     const {
@@ -193,10 +194,22 @@ class ActionsDropdown extends PureComponent {
           <DropdownListItem
             //data-test="uploadPresentation"
             //icon="presentation"
-            label={formatMessage(startTakingNotes)}
-            description={formatMessage(startTakingNotes)}
+            label={formatMessage(starttakingnotes)}
+            description={formatMessage(starttakingnotes)}
             //key={this.presentationItemId}
-            onClick={this.handlePresentationClick}
+            onClick={this.handleNotesClick}
+          />          
+        )
+        : null),
+      (!amIPresenter 
+        ? (
+          <DropdownListItem
+            //data-test="uploadPresentation"
+            //icon="presentation"
+            label={formatMessage(starttakingnotes)}
+            description={formatMessage(starttakingnotes)}
+            //key={this.presentationItemId}
+            onClick={this.handleNotesClick}
           />          
         )
         : null),
