@@ -193,7 +193,7 @@ class ActionsDropdown extends PureComponent {
         ? (
           <DropdownListItem
             //data-test="uploadPresentation"
-            //icon="presentation"
+            icon="polling"
             label={formatMessage(starttakingnotes)}
             description={formatMessage(starttakingnotes)}
             //key={this.presentationItemId}
@@ -205,7 +205,7 @@ class ActionsDropdown extends PureComponent {
         ? (
           <DropdownListItem
             //data-test="uploadPresentation"
-            //icon="presentation"
+            icon="polling"
             label={formatMessage(starttakingnotes)}
             description={formatMessage(starttakingnotes)}
             //key={this.presentationItemId}
