@@ -231,7 +231,7 @@ class ActionsDropdown extends PureComponent {
   handleNotesClick() {
     // const { mountModal } = this.props;
     // mountModal(<NoteContainer />);
-    alert(this.intl.formatMessage(stopTakingNotes));
+    alert('Message');
   }
 
   render() {
