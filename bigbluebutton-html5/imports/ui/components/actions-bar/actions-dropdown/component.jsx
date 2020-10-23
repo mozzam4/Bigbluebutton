@@ -127,7 +127,7 @@ class ActionsDropdown extends PureComponent {
       takePresenter,
       takePresenterDesc,
       stopTakingNotes,
-      startTakingNotes,      
+      starttakingnotes,      
     } = intlMessages;
 
     const {
@@ -193,8 +193,8 @@ class ActionsDropdown extends PureComponent {
           <DropdownListItem
             //data-test="uploadPresentation"
             //icon="presentation"
-            label={formatMessage(startTakingNotes)}
-            description={formatMessage(startTakingNotes)}
+            label={formatMessage(starttakingnotes)}
+            description={formatMessage(starttakingnotes)}
             //key={this.presentationItemId}
             onClick={this.handlePresentationClick}
           />          
