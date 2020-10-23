@@ -78,7 +78,7 @@ const intlMessages = defineMessages({
     description: 'Stop sharing external video button',
   },
   startTakingNotes: {
-    id: 'app.actionsBar.actionsDropdown.starttakingnotes',
+    id: 'app.actionsBar.actionsDropdown.startTakingNotes',
     description: 'Start taking notes',
   },
   stopTakingNotes: {
@@ -127,8 +127,8 @@ class ActionsDropdown extends PureComponent {
       presentationDesc,
       takePresenter,
       takePresenterDesc,
-      stoptakingNotes,
-      starttakingnotes,      
+      stoptakingnotes,
+      startTakingNotes,      
     } = intlMessages;
 
     const {
@@ -194,8 +194,8 @@ class ActionsDropdown extends PureComponent {
           <DropdownListItem
             //data-test="uploadPresentation"
             //icon="presentation"
-            label={formatMessage(starttakingnotes)}
-            description={formatMessage(starttakingnotes)}
+            label={formatMessage(startTakingNotes)}
+            description={formatMessage(startTakingNotes)}
             //key={this.presentationItemId}
             onClick={this.handlePresentationClick}
           />          
@@ -206,8 +206,8 @@ class ActionsDropdown extends PureComponent {
           <DropdownListItem
             //data-test="uploadPresentation"
             //icon="presentation"
-            label={formatMessage(starttakingnotes)}
-            description={formatMessage(starttakingnotes)}
+            label={formatMessage(startTakingNotes)}
+            description={formatMessage(startTakingNotes)}
             //key={this.presentationItemId}
             onClick={this.handlePresentationClick}
           />          
