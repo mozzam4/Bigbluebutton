@@ -13,6 +13,7 @@ import { withModalMounter } from '/imports/ui/components/modal/service';
 import withShortcutHelper from '/imports/ui/components/shortcut-help/service';
 import { styles } from '../styles';
 import ExternalVideoModal from '/imports/ui/components/external-video-player/modal/container';
+import NoteContainer from '/imports/ui/components/note/container'
 
 const propTypes = {
   amIPresenter: PropTypes.bool.isRequired,
@@ -197,7 +198,7 @@ class ActionsDropdown extends PureComponent {
             label={formatMessage(startTakingNotes)}
             description={formatMessage(startTakingNotes)}
             //key={this.presentationItemId}
-            onClick={this.handlePresentationClick}
+            onClick={this.handleNotesClick}
           />          
         )
         : null),
@@ -209,7 +210,7 @@ class ActionsDropdown extends PureComponent {
             label={formatMessage(startTakingNotes)}
             description={formatMessage(startTakingNotes)}
             //key={this.presentationItemId}
-            onClick={this.handlePresentationClick}
+            onClick={this.handleNotesClick}
           />          
         )
         : null),
@@ -224,6 +225,11 @@ class ActionsDropdown extends PureComponent {
   handlePresentationClick() {
     const { mountModal } = this.props;
     mountModal(<PresentationUploaderContainer />);
+  }
+  
+  handleNotesClick() {
+    const { mountModal } = this.props;
+    mountModal(<NoteContainer />);
   }
 
   render() {
