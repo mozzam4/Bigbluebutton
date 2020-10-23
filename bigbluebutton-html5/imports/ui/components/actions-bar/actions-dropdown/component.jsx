@@ -17,6 +17,7 @@ import ExternalVideoModal from '/imports/ui/components/external-video-player/mod
 const propTypes = {
   amIPresenter: PropTypes.bool.isRequired,
   intl: intlShape.isRequired,
+  clickforNotes: PropTypes.bool.isRequired,
   mountModal: PropTypes.func.isRequired,
   amIModerator: PropTypes.bool.isRequired,
   shortcuts: PropTypes.string,
@@ -88,7 +89,7 @@ const intlMessages = defineMessages({
 
 class ActionsDropdown extends PureComponent {
   constructor(props) {
-    super(props);
+    super(props);    
 
     this.presentationItemId = _.uniqueId('action-item-');
     this.pollId = _.uniqueId('action-item-');
@@ -126,7 +127,7 @@ class ActionsDropdown extends PureComponent {
       presentationDesc,
       takePresenter,
       takePresenterDesc,
-      stopTakingNotes,
+      stoptakingNotes,
       starttakingnotes,      
     } = intlMessages;
 
@@ -189,6 +190,18 @@ class ActionsDropdown extends PureComponent {
         )
         : null),
       (amIPresenter 
+        ? (
+          <DropdownListItem
+            //data-test="uploadPresentation"
+            //icon="presentation"
+            label={formatMessage(starttakingnotes)}
+            description={formatMessage(starttakingnotes)}
+            //key={this.presentationItemId}
+            onClick={this.handlePresentationClick}
+          />          
+        )
+        : null),
+      (!amIPresenter 
         ? (
           <DropdownListItem
             //data-test="uploadPresentation"
