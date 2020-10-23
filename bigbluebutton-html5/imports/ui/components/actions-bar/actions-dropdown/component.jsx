@@ -18,7 +18,7 @@ import NoteContainer from '/imports/ui/components/note/container'
 const propTypes = {
   amIPresenter: PropTypes.bool.isRequired,
   intl: intlShape.isRequired,
-  clickforNotes: PropTypes.bool.isRequired,
+  clickForNotes: PropTypes.bool.isRequired,
   mountModal: PropTypes.func.isRequired,
   amIModerator: PropTypes.bool.isRequired,
   shortcuts: PropTypes.string,
@@ -98,6 +98,7 @@ class ActionsDropdown extends PureComponent {
 
     this.handlePresentationClick = this.handlePresentationClick.bind(this);
     this.handleExternalVideoClick = this.handleExternalVideoClick.bind(this);
+    this.handleNotesClick = this.handleNotesClick.bind(this);
   }
 
   componentWillUpdate(nextProps) {
@@ -105,7 +106,7 @@ class ActionsDropdown extends PureComponent {
     const { amIPresenter: wasPresenter, mountModal } = this.props;
     if (wasPresenter && !isPresenter) {
       mountModal(null);
-    }
+    } 
   }
 
   getAvailableActions() {
@@ -194,10 +195,10 @@ class ActionsDropdown extends PureComponent {
         ? (
           <DropdownListItem
             //data-test="uploadPresentation"
-            //icon="presentation"
+            icon="polling"
             label={formatMessage(startTakingNotes)}
             description={formatMessage(startTakingNotes)}
-            //key={this.presentationItemId}
+            key={this.presentationItemId}
             onClick={this.handleNotesClick}
           />          
         )
@@ -206,10 +207,10 @@ class ActionsDropdown extends PureComponent {
         ? (
           <DropdownListItem
             //data-test="uploadPresentation"
-            //icon="presentation"
+            icon="polling"
             label={formatMessage(startTakingNotes)}
             description={formatMessage(startTakingNotes)}
-            //key={this.presentationItemId}
+            key={this.presentationItemId}
             onClick={this.handleNotesClick}
           />          
         )
@@ -228,8 +229,9 @@ class ActionsDropdown extends PureComponent {
   }
   
   handleNotesClick() {
-    const { mountModal } = this.props;
-    mountModal(<NoteContainer />);
+    // const { mountModal } = this.props;
+    // mountModal(<NoteContainer />);
+    alert(intl.formatMessage(stopTakingNotes));
   }
 
   render() {
